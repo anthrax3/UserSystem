@@ -4,7 +4,7 @@
 
     using UserSystem.Data.Models;
 
-    internal class ApplicationDbContext : DbContext
+    public class ApplicationDbContext : DbContext
     {
         public ApplicationDbContext()
             : base("DefaultConnection")

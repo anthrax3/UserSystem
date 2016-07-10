@@ -6,7 +6,7 @@ namespace UserSystem.Data.Migrations
     using UserSystem.Common;
     using UserSystem.Data.Models;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<ApplicationDbContext>
+    public sealed class Configuration : DbMigrationsConfiguration<ApplicationDbContext>
     {
         private readonly IRandomGenerator random;
 
