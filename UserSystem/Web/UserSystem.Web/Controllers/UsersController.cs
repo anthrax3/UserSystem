@@ -94,5 +94,30 @@
 
             return this.RedirectToAction("Index", "Home");
         }
+
+        public ActionResult ChangeStatus(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            if (!this.ModelState.IsValid)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            var user = this.Data.Users.Find(id);
+            if (user == null)
+            {
+                return this.HttpNotFound();
+            }
+
+            user.Status = user.Status == Status.Active ? Status.Inactive : Status.Active;
+            this.Data.Users.Update(user);
+            this.Data.SaveChanges();
+
+            return this.RedirectToAction("Profile", "Users", new { area = string.Empty, id = id});
+        }
     }
 }
