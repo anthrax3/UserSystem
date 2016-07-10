@@ -1,0 +1,82 @@
+﻿.user-result-box {
+    width: 100%;
+    margin-bottom: 30px;
+    border: 1px solid #ccc;
+    transition: all .2s ease;
+}
+
+.table-holder {
+    display: table;
+}
+
+.user-result-box .user-result {
+    width: 65px;
+    font-family: "LatoLight","Arial","Helvetica",sans-serif;
+    font-size: 32px;
+    line-height: 100%;
+    color: #234465;
+    text-align: center;
+}
+
+.circle-cell, .cell {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.user-result-box .user-place {
+    padding: 15px 0;
+}
+
+.user-result-box .user-details {
+    padding: 12px;
+    border-left: 1px solid #ccc;
+}
+
+.user-wrap {
+    display: table;
+    line-height: 100%;
+}
+
+.user-wrap .user-avatar {
+    width: 50px;
+    height: 50px;
+}
+
+.user-result-box .user-name {
+    display: block;
+    margin-bottom: 3px;
+    font-size: 20px;
+    line-height: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.user-result-box:hover {
+    background: #234465;
+    color: #fff;
+}
+
+.user-result-box:hover .user-result, .user-result-box:hover .user-name {
+    color: #fff;
+}
+
+.user-avatar {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 100%;
+    overflow: hidden;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    -ms-border-radius: 100%;
+    border-radius: 100%;
+}
+
+.user-wrap .user-avatar {
+    width: 50px;
+    height: 50px;
+}
+
+.user-result-box .user-details .cell {
+    padding-left: 14px;
+}
