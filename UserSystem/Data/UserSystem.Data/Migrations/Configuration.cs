@@ -45,8 +45,9 @@ namespace UserSystem.Data.Migrations
                                        + $" {this.random.RandomNumber(0, 99).ToString("00")}"
                                        + $" {this.random.RandomNumber(0, 99).ToString("00")}", 
                                    Sex = (Gender)this.random.RandomNumber(0, 2), 
-                                   Status = (Status)this.random.RandomNumber(0, 1)
-                               };
+                                   Status = (Status)this.random.RandomNumber(0, 1),
+                                   PhotoUrl = GlobalConstants.PhotoUrl
+                };
 
                 context.Users.Add(user);
             }
