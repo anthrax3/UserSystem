@@ -26,7 +26,7 @@
                             <img src="@Url.Content(user.PhotoUrl)" alt="@(user.Username) avatar" />
                         </span>
                         <span class="cell">
-                            <a href="" class="user-name">@user.Username</a>
+                            <a href="@Url.Action("Profile", "Users", new { area = string.Empty, id = user.Id })" class="user-name">@user.Username</a>
                             @if (user.Status == Status.Active)
                             {
                                 <span class="label label-primary">@user.Status</span>

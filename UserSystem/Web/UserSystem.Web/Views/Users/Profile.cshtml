@@ -1,0 +1,99 @@
+﻿@using UserSystem.Data.Models
+@model UserSystem.Web.ViewModels.Users.UserViewModel
+@{
+    ViewBag.Title = "User Profile";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <h2 class="pull-left">@ViewBag.Title</h2>
+    </div>
+</div>
+
+<hr />
+
+<div class="profile-header">
+    <div class="row base-info-row">
+        <div class="head-info">
+            <div class="row base-info-row">
+                <div class="col-md-8 col-sm-12 col-xs-12">
+                    <div class="user-wrap">
+                        <div class="user-avatar">
+                            <img src="@Url.Content(Model.PhotoUrl)" alt="@(Model.Username) avatar" />
+                        </div>
+                        <div class="cell">
+                            <h2 class="user-name">
+                                <strong>@Model.FirstName @Model.LastName (@Model.Username)</strong>
+                            </h2>
+                            <ul class="profile-header contact-info">
+                                <li></li>
+                                <li>@Model.FirstName @Model.LastName</li>
+                                <li>
+                                    <a href="mailto:@(Model.Email)">
+                                        <strong>@Model.Email</strong>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <a href="" class="btn btn-warning">
+                        <i class="glyphicon glyphicon-pencil"></i>
+                        <span>Edit</span>
+                    </a>
+                </div>
+                <div class="col-md-4 col-sm-12 col-xs-12">
+                    <h4>User Status:</h4>
+                    <table class="table table-responsive table-striped">
+                        <tr>
+                            <th class="col-md-1">Status</th>
+                            <th class="col-md-1">Action</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                @if (Model.Status == Status.Active)
+                                {
+                                    <span class="btn btn-primary btn-sm disabled">@Model.Status</span>
+                                }
+                                else
+                                {
+                                    <span class="btn btn-danger btn-sm disabled">@Model.Status</span>
+                                }
+
+                            </td>
+                            <td>
+                                <a href="" class="btn btn-success btn-sm">
+                                    <span>Change Status</span>
+                                </a>
+                            </td>
+                        </tr>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+        <div class="details-info">
+            <div class="row">
+                <ul class="details-list">
+                    <li class="col-md-2 col-sm-3">
+                        <div class="info-wrap">
+                            <span class="profile-label">User Id:</span>
+                            <strong>@Model.Id</strong>
+                        </div>
+                    </li>
+                    <li class="col-md-2 col-sm-3">
+                        <div class="info-wrap">
+                            <span class="profile-label">Telephone:</span>
+                            <strong>@Model.Telephone</strong>
+                        </div>
+                    </li>
+                    <li class="col-md-2 col-sm-3">
+                        <div class="info-wrap">
+                            <span class="profile-label">Gender:</span>
+                            <strong>@Model.Sex</strong>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
