@@ -77,6 +77,13 @@
     height: 50px;
 }
 
+.user-avatar img {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+}
+
 .user-result-box .user-details .cell {
     padding-left: 14px;
 }
