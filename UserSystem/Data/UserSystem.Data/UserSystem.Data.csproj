@@ -58,6 +58,10 @@
     <Compile Include="UnitOfWork\UserSystemData.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Common\UserSystem.Common\UserSystem.Common.csproj">
+      <Project>{CD737768-C213-4367-9A4F-ED58FCF61191}</Project>
+      <Name>UserSystem.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\UserSystem.Data.Models\UserSystem.Data.Models.csproj">
       <Project>{100f99c7-9e69-497a-8cc0-a3f0db135b31}</Project>
       <Name>UserSystem.Data.Models</Name>

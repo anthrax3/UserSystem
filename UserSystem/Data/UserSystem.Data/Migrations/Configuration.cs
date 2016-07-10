@@ -1,26 +1,57 @@
 namespace UserSystem.Data.Migrations
 {
     using System.Data.Entity.Migrations;
+    using System.Linq;
+
+    using UserSystem.Common;
+    using UserSystem.Data.Models;
 
     internal sealed class Configuration : DbMigrationsConfiguration<ApplicationDbContext>
     {
+        private readonly IRandomGenerator random;
+
         public Configuration()
         {
-            this.AutomaticMigrationsEnabled = false;
+            this.AutomaticMigrationsEnabled = true;
+            this.AutomaticMigrationDataLossAllowed = true;
+            this.random = new RandomGenerator();
         }
 
         protected override void Seed(ApplicationDbContext context)
         {
-            // This method will be called after migrating to the latest version.
+            this.SeedUsers(context);
+        }
 
-            // You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            // to avoid creating duplicate seed data. E.g.
-            // context.People.AddOrUpdate(
-            // p => p.FullName,
-            // new Person { FullName = "Andrew Peters" },
-            // new Person { FullName = "Brice Lambson" },
-            // new Person { FullName = "Rowan Miller" }
-            // );
+        private void SeedUsers(ApplicationDbContext context)
+        {
+            if (context.Users.Any())
+            {
+                return;
+            }
+
+            for (int i = 0; i < 20; i++)
+            {
+                var user = new User
+                               {
+                                   Id = i, 
+                                   Username = this.random.RandomString(6, 16), 
+                                   Email = $"{this.random.RandomString(6, 16)}@{this.random.RandomString(6, 16)}.com", 
+                                   FirstName = this.random.RandomString(6, 16), 
+                                   LastName = this.random.RandomString(6, 16), 
+                                   Telephone =
+                                       $"+{this.random.RandomNumber(0, 999).ToString("000")}"
+                                       + $" {this.random.RandomNumber(0, 999).ToString("000")}"
+                                       + $" {this.random.RandomNumber(0, 99).ToString("00")}"
+                                       + $" {this.random.RandomNumber(0, 99).ToString("00")}"
+                                       + $" {this.random.RandomNumber(0, 99).ToString("00")}", 
+                                   Sex = (Gender)this.random.RandomNumber(0, 2), 
+                                   Status = (Status)this.random.RandomNumber(0, 1)
+                               };
+
+                context.Users.Add(user);
+            }
+
+            context.SaveChanges();
         }
     }
 }
