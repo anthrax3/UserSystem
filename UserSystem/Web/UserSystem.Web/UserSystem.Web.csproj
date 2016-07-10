@@ -161,6 +161,20 @@
     <Folder Include="Controllers\" />
     <Folder Include="Models\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\UserSystem.Common\UserSystem.Common.csproj">
+      <Project>{cd737768-c213-4367-9a4f-ed58fcf61191}</Project>
+      <Name>UserSystem.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Data\UserSystem.Data.Models\UserSystem.Data.Models.csproj">
+      <Project>{100f99c7-9e69-497a-8cc0-a3f0db135b31}</Project>
+      <Name>UserSystem.Data.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Data\UserSystem.Data\UserSystem.Data.csproj">
+      <Project>{d7fcb98c-30e8-430c-aa5e-48bec7f96fa2}</Project>
+      <Name>UserSystem.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
