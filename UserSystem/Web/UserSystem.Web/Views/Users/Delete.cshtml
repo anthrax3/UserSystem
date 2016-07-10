@@ -1,0 +1,45 @@
+﻿@model UserSystem.Data.Models.User
+
+@{
+    ViewBag.Title = "Delete User";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <h2 class="pull-left">@ViewBag.Title</h2>
+    </div>
+</div>
+
+<hr/>
+
+<div class="row">
+    <div class="col-md-12">
+        <h3 class="blog-post-title text-danger">Are you sure you want to delete this user?</h3>
+    </div>
+</div>
+
+<hr/>
+
+<div class="row">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-danger"/>
+
+            @if (Request.UrlReferrer == null)
+            {
+                <a href="@Url.Action("Index", "Home", new { area = string.Empty })" class="btn btn-default">
+                    <span>Cancel</span>
+                </a>
+            }
+            else
+            {
+                <a href="@Request.UrlReferrer" class="btn btn-default">
+                    <span>Cancel</span>
+                </a>
+            }
+        </div>
+    }
+</div>

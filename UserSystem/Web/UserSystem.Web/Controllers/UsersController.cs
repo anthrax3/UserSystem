@@ -66,5 +66,33 @@
 
             return this.View(user);
         }
+
+        public ActionResult Delete(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            var user = this.Data.Users.Find(id);
+            if (user == null)
+            {
+                return this.HttpNotFound();
+            }
+
+            return this.View(user);
+        }
+
+        [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            var user = this.Data.Users.Find(id);
+            this.Data.Users.Remove(user);
+            this.Data.SaveChanges();
+
+            return this.RedirectToAction("Index", "Home");
+        }
     }
 }

@@ -205,6 +205,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Users\Profile.cshtml" />
     <Content Include="Views\Users\Edit.cshtml" />
+    <Content Include="Views\Users\Delete.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
