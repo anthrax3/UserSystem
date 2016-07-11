@@ -10,6 +10,7 @@
     using UserSystem.Data.Models;
     using UserSystem.Data.UnitOfWork;
     using UserSystem.Web.ViewModels.Home;
+    using UserSystem.Web.ViewModels.Users;
 
     public class HomeController : BaseController
     {

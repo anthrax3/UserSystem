@@ -198,7 +198,7 @@
     <Compile Include="Infrastructure\Mapping\IMapFrom.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\Home\IndexPageViewModel.cs" />
-    <Compile Include="ViewModels\Home\UserConciseViewModel.cs" />
+    <Compile Include="ViewModels\Users\UserConciseViewModel.cs" />
     <Compile Include="ViewModels\Users\UserViewModel.cs" />
   </ItemGroup>
   <ItemGroup>

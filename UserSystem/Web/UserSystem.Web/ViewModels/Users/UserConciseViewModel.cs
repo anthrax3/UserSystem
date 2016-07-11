@@ -1,4 +1,4 @@
-﻿namespace UserSystem.Web.ViewModels.Home
+﻿namespace UserSystem.Web.ViewModels.Users
 {
     using UserSystem.Data.Models;
     using UserSystem.Web.Infrastructure.Mapping;
