@@ -5,22 +5,28 @@
 
     using AutoMapper.QueryableExtensions;
 
+    using PagedList;
+
+    using UserSystem.Data.Models;
     using UserSystem.Data.UnitOfWork;
     using UserSystem.Web.ViewModels.Home;
 
     public class HomeController : BaseController
     {
+        private const int UsersPerPageDefaultValue = 15;
+
         public HomeController(IUserSystemData data)
             : base(data)
         {
         }
 
-        // GET: Home
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
-            var users = this.Data.Users.All().ProjectTo<UserConciseViewModel>().ToList();
+            var pageNumber = page ?? 1;
 
-            var model = new IndexPageViewModel { Users = users };
+            var users = this.Data.Users.All().Where(u => u.Status != Status.Deleted).ProjectTo<UserConciseViewModel>().ToList();
+            var viewModel = new IndexPageViewModel { Users = users };
+            var model = viewModel.Users.ToPagedList(pageNumber, UsersPerPageDefaultValue);
 
             return this.View(model);
         }

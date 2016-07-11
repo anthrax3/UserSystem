@@ -1,5 +1,6 @@
-﻿@using UserSystem.Data.Models
-@model UserSystem.Web.ViewModels.Home.IndexPageViewModel
+﻿@using PagedList.Mvc
+@using UserSystem.Data.Models
+@model PagedList.IPagedList<UserSystem.Web.ViewModels.Home.UserConciseViewModel>
 @{
     ViewBag.Title = "Home Page";
 }
@@ -13,7 +14,7 @@
 <hr />
 
 <div class="row">
-    @foreach (var user in Model.Users)
+    @foreach (var user in Model)
     {
         <div class="col-md-4 col-sm-6">
             <div class="user-result-box table-holder">
@@ -42,5 +43,12 @@
         </div>
     }
 
+
+</div>
+
+<div class="row">
+    <div class="text-center">
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page }), PagedListRenderOptions.ClassicPlusFirstAndLast)
+    </div>
 </div>
 
